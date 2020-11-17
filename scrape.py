@@ -44,7 +44,7 @@ def make_request(form, retries=3):
     if r.status_code != 200:
         print(r.status_code, form)
     if r.status_code == 429: 
-        wait_time = int(10 + 60 * (1/retries)) if retries > 0 else 90
+        wait_time = int(10 + 60 * (1/retries)) if retries > 0 else 120
         print(f"too many requests -- wait {wait_time} seconds before retrying ({retries} left)")
         time.sleep(wait_time)
         if retries > 0:
